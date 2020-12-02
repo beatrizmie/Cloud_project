@@ -43,11 +43,13 @@ def create_load_balancer(regionName, securityGroupName, loadBalancerName, availa
 def delete_load_balancer(regionName, loadBalancerName):
 
     print("\nDeleting load balancer...")
+    client_elb = get_client_elb(regionName)
 
     try:
-        get_client_elb(regionName).delete_load_balancer(
-            LoadBalancerName=loadBalancerName)
-        print("Successfully deleted %s" % loadBalancerName)
+        for lb in client_elb.describe_load_balancers()["LoadBalancerDescriptions"]:
+            if lb["LoadBalancerName"] == loadBalancerName:
+                load_balancer_response = client_elb.delete_load_balancer(LoadBalancerName=loadBalancerName)
+                print("Successfully deleted %s" % loadBalancerName)
 
     except ClientError as e:
         print('Error', e)

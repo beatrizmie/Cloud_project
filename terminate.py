@@ -43,7 +43,7 @@ delete_load_balancer(north_virginia_region_name, load_balancer_name)
 delete_image(north_virginia_region_name, [image_name])
 
 # terminate instance
-terminate_instance(ohio_region_name, [database_tag_name])
+terminate_instance(ohio_region_name, database_tag_name)
 
 # delete security groups
 delete_security_group(north_virginia_region_name, north_virginia_SG_name)

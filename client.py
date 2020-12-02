@@ -3,7 +3,7 @@ import datetime
 import json
 import sys
 
-url = 'http://loadbalancer-1076904637.us-east-1.elb.amazonaws.com/tasks/'
+url = 'http://loadbalancer-1146583039.us-east-1.elb.amazonaws.com/tasks/'
 
 
 def get_all_tasks():
